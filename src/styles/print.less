@@ -1,0 +1,43 @@
+@minContentSize: 1cm;
+
+.canvas-container {
+  padding: 0.1cm;
+}
+
+.canvas-row.colored {
+  padding: 0.1cm;
+  margin-bottom: 0.1cm;
+}
+
+.canvas-row.attached {
+  margin-left: -0.1cm;
+  margin-right: -0.1cm;
+  &.top {
+    margin-top: -0.1cm;
+  }
+}
+
+.canvas-item {
+  padding: 0.25cm;
+  margin: 0.1cm;
+  &.featured {
+    box-shadow: inset 0 0 0 0.12cm rgba(0,0,0,0.02);
+  }
+  .canvas-item-icon {
+    font-size: 1.25cm;
+  }
+  .canvas-header {
+    margin: -0.25cm -0.25cm 0.12cm;
+    span {
+      padding: 0.2cm 0.25cm;
+    }
+  }
+  .canvas-content {
+    min-height: @minContentSize;
+  }
+  .canvas-content.attached {
+    margin-left: -0.25cm;
+    margin-right: -0.25cm;
+    margin-bottom: -0.25cm;
+  }
+}

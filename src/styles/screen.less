@@ -1,0 +1,113 @@
+.canvas-container {
+  padding: 0.5rem;
+}
+
+.canvas-row.colored {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.canvas-row.attached {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  &.top {
+    margin-top: -0.5rem;
+  }
+}
+
+.canvas-item {
+  margin: 0.5rem;
+  padding: 1.5rem;
+  transition: all ease-in-out 0.1s;
+  overflow-y: auto;
+  overflow-x: hidden;
+  cursor: default;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+  &.featured {
+    box-shadow: inset 0 0 0 0.75rem rgba(0, 0, 0, 0.02);
+  }
+  .canvas-item-icon {
+    transition: all ease-in-out 0.2s;
+  }
+  &.has-details {
+    cursor: pointer;
+  }
+  &.empty {
+    overflow: hidden;
+  }
+  .canvas-item-details-overlay {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all linear 0.2s;
+  }
+  &:hover {
+    z-index: 3;
+    background: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 0 4rem rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    border-color: transparent;
+    .canvas-item-icon {
+      transform: rotate(5deg) scale(1.2);
+    }
+    .canvas-item-details-overlay {
+      background: rgba(255, 255, 255, 0.6);
+    }
+    .canvas-item-details-button {
+      display: inline-block;
+      font-size: 0.6em;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+      background: #fff;
+      box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+      border-radius: 3px;
+      padding: 1rem;
+      z-index: 2;
+      border: 1px solid @borderColor;
+      .fa {
+        float: left;
+        font-size: 1.5em;
+        margin-right: 1rem;
+      }
+    }
+  }
+  .canvas-header {
+    margin: 0 0 1rem;
+    margin: -1.5rem -1.5rem 0.75rem;
+    span {
+      padding: 0.75rem 1.5rem;
+    }
+  }
+  .canvas-content.attached {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    margin-bottom: -1.5rem;
+  }
+  .canvas-item-details-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.8);
+    .canvas-item-details {
+      max-width: 800px;
+      margin-top: 10%;
+      background: #fff;
+      border-radius: 3px;
+      box-shadow: 0 0 1px @borderColor, 0 0 2rem rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+  }
+}
+.canvas-group {
+  margin-bottom: 0.5rem;
+}

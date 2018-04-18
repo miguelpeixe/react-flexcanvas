@@ -1,0 +1,14 @@
+{
+  "name": "react-flexcanvas-business-model-canvas-example",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.12",
+    "react-flexcanvas": "../../"
+  },
+  "scripts": {
+    "start": "react-scripts start"
+  }
+}
