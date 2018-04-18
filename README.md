@@ -2,7 +2,7 @@
 
 Grid system built with flexboxes for React.
 
-![FlexCanvas Example](https://i.imgur.com/klreJxJ.png)
+![FlexCanvas Example](https://i.imgur.com/iJlAVoM.png)
 
 ---
 
