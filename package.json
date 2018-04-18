@@ -1,7 +1,7 @@
 {
   "name": "react-flexcanvas",
   "version": "0.0.1",
-  "description": "Grid system built with flexboxes for React",
+  "description": "Canvas grid system built with flexboxes for React",
   "main": "lib/react-flexcanvas.js",
   "keywords": [
     "react",
