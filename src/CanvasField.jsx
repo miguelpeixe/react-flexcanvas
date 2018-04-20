@@ -1,6 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export default class CanvasField extends React.Component {
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    placeholder: PropTypes.string,
+    grow: PropTypes.number
+  };
   render() {
     const { title, placeholder, grow } = this.props;
     return (

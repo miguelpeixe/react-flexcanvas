@@ -1,8 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import CanvasTable from "./CanvasTable.jsx";
 
 export default class CanvasItem extends React.Component {
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    color: PropTypes.string,
+    details: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+    icon: PropTypes.element,
+    featured: PropTypes.bool,
+    grow: PropTypes.number
+  };
   constructor(props) {
     super(props);
     this.state = {
@@ -53,7 +62,7 @@ export default class CanvasItem extends React.Component {
           flexGrow: grow || 1
         }}
       >
-        {icon ? <span className={`canvas-item-icon fa fa-${icon}`} /> : null}
+        {icon ? <div className="canvas-item-icon">{icon}</div> : null}
         {title ? (
           <h3 className="canvas-header">
             <span>{title}</span>
@@ -65,9 +74,7 @@ export default class CanvasItem extends React.Component {
         {details ? (
           <div>
             <div className="canvas-item-details-overlay">
-              <div className="canvas-item-details-button">
-                <span className="fa fa-info-circle" /> Mais informações
-              </div>
+              <div className="canvas-item-details-button">Mais informações</div>
             </div>
           </div>
         ) : null}

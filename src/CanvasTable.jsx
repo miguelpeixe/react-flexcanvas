@@ -1,6 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export default class CanvasTable extends React.Component {
+  static propTypes = {
+    columns: PropTypes.arrayOf(PropTypes.string).isRequired,
+    amount: PropTypes.number
+  };
   render() {
     const { columns, amount } = this.props;
     return (

@@ -13,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf lib && mkdir lib",
     "compile": "npm run clean && webpack --config webpack.config.js --mode=production",
-    "watch": "npm run clean && webpack --config webpack.config.js --watch",
+    "watch": "npm run clean && webpack --config webpack.config.js --mode=development --watch",
     "prepublish": "npm run compile",
     "release:pre": "npm version prerelease && npm publish --tag pre",
     "release:patch": "npm version patch && npm publish",
@@ -45,5 +45,8 @@
     "style-loader": "^0.20.3",
     "webpack": "^4.6.0",
     "webpack-cli": "^2.0.14"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.1"
   }
 }

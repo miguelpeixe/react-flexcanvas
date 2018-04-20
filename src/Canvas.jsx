@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "styles/canvas.less";
 
@@ -6,29 +7,24 @@ import CanvasItem from "./CanvasItem.jsx";
 import CanvasRow from "./CanvasRow.jsx";
 import CanvasColumn from "./CanvasColumn.jsx";
 import CanvasList from "./CanvasList.jsx";
-import CanvasGroup from "./CanvasGroup.jsx";
+import CanvasFieldGroup from "./CanvasFieldGroup.jsx";
 import CanvasField from "./CanvasField.jsx";
 import CanvasTable from "./CanvasTable.jsx";
 
-import CanvasDetails from "./CanvasDetails.jsx";
-
-class Canvas extends React.Component {
+export default class Canvas extends React.Component {
+  static propTypes = {
+    children: PropTypes.node
+  };
+  static Item = CanvasItem;
+  static Row = CanvasRow;
+  static Column = CanvasColumn;
+  static FieldGroup = CanvasFieldGroup;
+  static List = CanvasList;
+  static Field = CanvasField;
+  static Table = CanvasTable;
   render() {
     return (
-      <section className="canvas-container">
-        {this.props.children}
-        <CanvasDetails />
-      </section>
+      <section className="canvas-container">{this.props.children}</section>
     );
   }
 }
-
-Canvas.Item = CanvasItem;
-Canvas.Row = CanvasRow;
-Canvas.Column = CanvasColumn;
-Canvas.Group = CanvasGroup;
-Canvas.List = CanvasList;
-Canvas.Field = CanvasField;
-Canvas.Table = CanvasTable;
-
-export default Canvas;
