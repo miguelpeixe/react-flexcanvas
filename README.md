@@ -1,9 +1,7 @@
 # React FlexCanvas
 
 
-[![npm](https://img.shields.io/npm/v/react-flexcanvas.svg)](https://www.npmjs.com/package/react-flexcanvas) 
-[![npm](https://img.shields.io/npm/v/react-flexcanvas.svg)](https://www.npmjs.com/package/react-flexcanvas)
- ![dependencies](https://david-dm.org/miguelpeixe/react-flexcanvas.svg)
+[![version](https://img.shields.io/npm/v/react-flexcanvas.svg)](https://www.npmjs.com/package/react-flexcanvas) ![license](https://img.shields.io/npm/l/react.svg) ![dependencies](https://david-dm.org/miguelpeixe/react-flexcanvas.svg)
 
 Canvas grid system built with flexboxes for React.
 
