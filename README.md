@@ -1,6 +1,6 @@
 # React FlexCanvas
 
-[![npm version](https://badge.fury.io/js/react-flexcanvas.svg)](https://badge.fury.io/js/react-flexcanvas)
+[![npm version](https://badge.fury.io/js/react-flexcanvas.svg)](https://badge.fury.io/js/react-flexcanvas) ![dependencies](https://david-dm.org/username/repo.svg)
 
 Canvas grid system built with flexboxes for React.
 
