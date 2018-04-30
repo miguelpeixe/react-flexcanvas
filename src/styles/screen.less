@@ -17,12 +17,14 @@
 
 .canvas-item {
   margin: 0.5rem;
-  padding: 1.5rem;
   transition: all ease-in-out 0.1s;
+  cursor: default;
+  overflow: hidden;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+  // transition: 0.6s;
+  transform-style: preserve-3d;
   overflow-y: auto;
   overflow-x: hidden;
-  cursor: default;
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
   &.featured {
     box-shadow: inset 0 0 0 0.75rem rgba(0, 0, 0, 0.02);
   }
@@ -34,6 +36,61 @@
   }
   &.empty {
     overflow: hidden;
+  }
+  .canvas-item-content,
+  .canvas-item-details {
+    padding: 1.5rem;
+    display: flex;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+  }
+  .canvas-item-content {
+    z-index: 2;
+    background: #fff;
+  }
+  .canvas-item-details {
+    transform: rotateY(180deg);
+    background: #333;
+    color: #f0f0f0;
+    .canvas-details-close {
+      display: block;
+      position: absolute;
+      line-height: 1;
+      text-transform: lowercase;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      top: 0;
+      right: 0;
+      padding: .7rem 1rem;
+      background: #000;
+      border-radius: 0 4px 0 4px;
+      z-index: 2;
+      &:hover {
+        color: #999;
+      }
+    }
+    .canvas-details {
+      position: absolute;
+      cursor: default;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      overflow: auto;
+      padding: 1.5rem 3rem 1.5rem 1.5rem;
+    }
+  }
+  &.active {
+    transform: scale(1) !important;
+    box-shadow: 0 0 0 !important;
+    .canvas-item-content {
+      transform: rotateY(180deg);
+      z-index: auto;
+    }
+    .canvas-item-details {
+      transform: rotateY(0deg);
+    }
   }
   .canvas-item-details-overlay {
     position: absolute;
@@ -50,12 +107,12 @@
   &:hover {
     z-index: 3;
     background: #fff;
-    transform: scale(1.05);
+    // transform: scale(1.05);
+    // border-radius: 6px;
     box-shadow: 0 0 4rem rgba(0, 0, 0, 0.1);
-    border-radius: 6px;
     border-color: transparent;
     .canvas-item-icon {
-      transform: rotate(5deg) scale(1.2);
+      transform: rotate(-5deg);
     }
     .canvas-item-details-overlay {
       background: rgba(255, 255, 255, 0.6);
@@ -70,12 +127,9 @@
       border-radius: 3px;
       padding: 1rem 1.5rem;
       z-index: 2;
+      color: #000;
+      text-decoration: none;
       border: 1px solid @borderColor;
-      .canvas-item-icon {
-        float: left;
-        font-size: 1.5em;
-        margin-right: 1rem;
-      }
     }
   }
   .canvas-header {
