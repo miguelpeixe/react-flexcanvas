@@ -201,6 +201,8 @@
       text-transform: uppercase;
       margin: 0;
       padding-top: 0.5em;
+      margin-bottom: 0.5em;
+      color: #666;
       padding-bottom: 0.5em;
       box-sizing: border-box;
       border-bottom: 1px solid @borderColor;
@@ -266,9 +268,12 @@
     padding: 0.5em 1em;
     border-bottom: 1px solid @borderColor;
     height: 21px;
+    color: #666;
   }
   td {
     border-bottom: 0;
+    padding: .5em;
+    vertical-align: top;
   }
   th:last-child,
   td:last-child {
@@ -276,10 +281,12 @@
   }
   &.numbered {
     td {
+      height: 1px;
       border-bottom: 1px solid @borderColor;
     }
     tr:last-child td {
       border-bottom: 0;
+      height: auto;
     }
   }
 }

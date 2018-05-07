@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import get from "lodash.get";
 
 import { DataContext } from "./Canvas.jsx";
 
@@ -35,6 +36,16 @@ export default class CanvasItem extends React.Component {
     if (details && active) {
       this.setState({ active: false });
     }
+  }
+  _getValue(data) {
+    const { dataKey } = this.props;
+    return get(data, dataKey);
+  }
+  _renderChildren(data) {
+    const { children } = this.props;
+    return React.Children.map(children, child =>
+      React.cloneElement(child, { data: this._getValue(data) })
+    );
   }
   render() {
     const {
@@ -86,7 +97,9 @@ export default class CanvasItem extends React.Component {
                 </h3>
               ) : null}
               <div className={`canvas-content ${contentClasses}`}>
-                {dataKey && data[dataKey] ? data[dataKey] : this.props.children}
+                {this.props.children
+                  ? this._renderChildren(data)
+                  : this._getValue(data)}
               </div>
               {details ? (
                 <div>

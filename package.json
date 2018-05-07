@@ -47,6 +47,7 @@
     "webpack-cli": "^2.0.14"
   },
   "dependencies": {
+    "lodash.get": "^4.4.2",
     "prop-types": "^15.6.1"
   }
 }

@@ -7,9 +7,9 @@ export default class CanvasTable extends React.Component {
     amount: PropTypes.number
   };
   render() {
-    const { columns, amount } = this.props;
+    const { columns, data, amount } = this.props;
     return (
-      <table className={`canvas-table ${amount ? "numbered" : ""}`}>
+      <table className={`canvas-table ${amount || data ? "numbered" : ""}`}>
         <thead>
           <tr>
             {columns.map((column, i) => (
@@ -19,17 +19,26 @@ export default class CanvasTable extends React.Component {
             ))}
           </tr>
         </thead>
-        <tbody>
-          {amount ? (
-            Array.apply(0, Array(amount)).map((item, i) => (
+        {amount || data ? (
+          <tbody className="counted">
+            {(data || Array.apply(0, Array(amount))).map((item, i) => (
               <tr key={`row-${i}`}>
-                {columns.map((column, j) => <td key={`cell-${i}-${j}`} />)}
+                {columns.map((column, j) => (
+                  <td cellSpacing="collapse" key={`cell-${i}-${j}`}>
+                    {item[j] || ""}
+                  </td>
+                ))}
               </tr>
-            ))
-          ) : (
+            ))}
+            <tr className="last-row">
+              {columns.map((column, j) => <td key={`lastrow-${j}`} />)}
+            </tr>
+          </tbody>
+        ) : (
+          <tbody>
             <tr>{columns.map((column, i) => <td key={`cell-${i}`} />)}</tr>
-          )}
-        </tbody>
+          </tbody>
+        )}
       </table>
     );
   }
