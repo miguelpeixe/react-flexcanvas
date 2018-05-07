@@ -1,10 +1,19 @@
 .canvas-container,
-.canvas-row {
+.canvas-row,
+.canvas-column,
+.canvas-item,
+.canvas-item .canvas-item-content,
+.canvas-item .canvas-header,
+.canvas-item .canvas-content {
   flex-direction: column;
 }
 
 .canvas-item .canvas-content {
   min-height: 2em;
+}
+
+.canvas-item.active .canvas-item-content {
+
 }
 
 .canvas-item .canvas-item-icon {

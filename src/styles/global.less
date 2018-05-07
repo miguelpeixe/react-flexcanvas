@@ -165,7 +165,6 @@
   .canvas-item-content,
   .canvas-item-details {
     backface-visibility: hidden;
-    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
@@ -173,6 +172,12 @@
     flex: 1 1 100%;
     display: flex;
     flex-direction: column;
+  }
+  .canvas-item-content {
+    position: relative;
+  }
+  .canvas-item-details {
+    position: absolute;
   }
   .canvas-item-details {
     display: none;

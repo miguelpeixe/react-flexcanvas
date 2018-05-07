@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { DataContext } from "./Canvas.jsx";
+
 import CanvasTable from "./CanvasTable.jsx";
 
 export default class CanvasItem extends React.Component {
@@ -42,7 +44,8 @@ export default class CanvasItem extends React.Component {
       details,
       grow,
       title,
-      children
+      children,
+      dataKey
     } = this.props;
     const { active } = this.state;
     let classes = "";
@@ -66,56 +69,60 @@ export default class CanvasItem extends React.Component {
       classes += " active";
     }
     return (
-      <article
-        onClick={this._handleClick}
-        className={`canvas-item ${classes}`}
-        style={{
-          flexGrow: grow || 1
-        }}
-      >
-        <section className="canvas-item-content">
-          {icon ? <div className="canvas-item-icon">{icon}</div> : null}
-          {title ? (
-            <h3 className="canvas-header">
-              <span>{title}</span>
-            </h3>
-          ) : null}
-          <div className={`canvas-content ${contentClasses}`}>
-            {this.props.children}
-          </div>
-          {details ? (
-            <div>
-              <div className="canvas-item-details-overlay">
-                <a
-                  href="javascript:void(0);"
-                  onClick={this._handleClick}
-                  className="canvas-item-details-button"
-                >
-                  Mais informações
-                </a>
+      <DataContext.Consumer>
+        {data => (
+          <article
+            onClick={this._handleClick}
+            className={`canvas-item ${classes}`}
+            style={{
+              flexGrow: grow || 1
+            }}
+          >
+            <section className="canvas-item-content">
+              {icon ? <div className="canvas-item-icon">{icon}</div> : null}
+              {title ? (
+                <h3 className="canvas-header">
+                  <span>{title}</span>
+                </h3>
+              ) : null}
+              <div className={`canvas-content ${contentClasses}`}>
+                {dataKey && data[dataKey] ? data[dataKey] : this.props.children}
               </div>
-            </div>
-          ) : null}
-        </section>
-        {details ? (
-          <section className="canvas-item-details">
-            <a
-              className="canvas-details-close"
-              href="javascript:void(0);"
-              onClick={this._handleCloseClick}
-            >
-              x
-            </a>
-            <div className="canvas-details">
-              {typeof details == "string" ? (
-                <p>{details}</p>
-              ) : (
-                <div>{details}</div>
-              )}
-            </div>
-          </section>
-        ) : null}
-      </article>
+              {details ? (
+                <div>
+                  <div className="canvas-item-details-overlay">
+                    <a
+                      href="javascript:void(0);"
+                      onClick={this._handleClick}
+                      className="canvas-item-details-button"
+                    >
+                      Mais informações
+                    </a>
+                  </div>
+                </div>
+              ) : null}
+            </section>
+            {details ? (
+              <section className="canvas-item-details">
+                <a
+                  className="canvas-details-close"
+                  href="javascript:void(0);"
+                  onClick={this._handleCloseClick}
+                >
+                  x
+                </a>
+                <div className="canvas-details">
+                  {typeof details == "string" ? (
+                    <p>{details}</p>
+                  ) : (
+                    <div>{details}</div>
+                  )}
+                </div>
+              </section>
+            ) : null}
+          </article>
+        )}
+      </DataContext.Consumer>
     );
   }
 }
