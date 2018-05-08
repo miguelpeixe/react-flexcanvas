@@ -38,8 +38,12 @@ export default class CanvasItem extends React.Component {
     }
   }
   _getValue(data) {
-    const { dataKey } = this.props;
-    return get(data, dataKey);
+    const { dataKey, format } = this.props;
+    let value = get(data, dataKey);
+    if (format) {
+      value = format(value);
+    }
+    return value;
   }
   _renderChildren(data) {
     const { children } = this.props;
