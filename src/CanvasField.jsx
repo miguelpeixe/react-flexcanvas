@@ -11,8 +11,12 @@ export default class CanvasField extends React.Component {
     grow: PropTypes.number
   };
   _getValue(data) {
-    const { dataKey } = this.props;
-    return get(data, dataKey);
+    const { dataKey, format } = this.props;
+    let value = get(data, dataKey);
+    if (format) {
+      value = format(value);
+    }
+    return value;
   }
   render() {
     const { title, placeholder, grow } = this.props;
