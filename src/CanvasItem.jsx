@@ -129,11 +129,7 @@ export default class CanvasItem extends React.Component {
                   x
                 </a>
                 <div className="canvas-details">
-                  {typeof details == "string" ? (
-                    <p>{details}</p>
-                  ) : (
-                    <div>{details}</div>
-                  )}
+                  {typeof details == "string" ? <p>{details}</p> : details}
                 </div>
               </section>
             ) : null}
