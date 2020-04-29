@@ -16,7 +16,7 @@ export const DataContext = React.createContext({});
 export default class Canvas extends React.Component {
   static propTypes = {
     children: PropTypes.node,
-    data: PropTypes.object
+    data: PropTypes.object,
   };
   static Item = CanvasItem;
   static Row = CanvasRow;
@@ -27,7 +27,7 @@ export default class Canvas extends React.Component {
   static Table = CanvasTable;
   _hasData() {
     const { data } = this.props;
-    return Object.keys(data).length;
+    return typeof data === "object" && Object.keys(data).length;
   }
   render() {
     return (
