@@ -89,7 +89,6 @@ export default class CanvasItem extends React.Component {
       <DataContext.Consumer>
         {(data) => (
           <article
-            onClick={this._handleClick}
             className={`canvas-item ${classes}`}
             style={{
               flexGrow: grow || 1,
@@ -109,7 +108,10 @@ export default class CanvasItem extends React.Component {
               </div>
               {details ? (
                 <div>
-                  <div className="canvas-item-details-overlay">
+                  <div
+                    className="canvas-item-details-overlay"
+                    onClick={this._handleClick}
+                  >
                     <a
                       href="#"
                       onClick={this._handleClick}

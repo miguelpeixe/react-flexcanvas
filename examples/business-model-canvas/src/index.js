@@ -7,7 +7,7 @@ ReactDom.render(
   <FlexCanvas>
     <FlexCanvas.Row grow="3">
       <FlexCanvas.Column>
-        <FlexCanvas.Item title="Key partners">
+        <FlexCanvas.Item title="Key partners" details={<p>Teste</p>}>
           <FlexCanvas.Field title="Who are our key partners?" />
           <FlexCanvas.Field title="Who are our key suppliers?" />
           <FlexCanvas.Field title="Which key resources are we acquairing from partners?" />
