@@ -3,17 +3,17 @@ const webpack = require("webpack");
 
 module.exports = {
   entry: {
-    "react-flexcanvas": ["./src"]
+    "react-flexcanvas": ["./src"],
   },
   resolve: {
-    modules: ["src", "node_modules"]
+    modules: ["src", "node_modules"],
   },
   output: {
     path: path.resolve("lib"),
     library: "react-flexcanvas",
-    libraryTarget: "umd",
+    libraryTarget: "commonjs2",
     filename: "[name].js",
-    sourceMapFilename: "[name].map.js"
+    sourceMapFilename: "[name].map.js",
   },
   devtool: "source-map",
   module: {
@@ -21,14 +21,19 @@ module.exports = {
       {
         test: /\.js(x)?$/,
         use: {
-          loader: "babel-loader"
+          loader: "babel-loader",
         },
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.(css|less)$/,
-        use: ["style-loader", "css-loader", "less-loader"]
-      }
-    ]
-  }
+        use: ["style-loader", "css-loader", "less-loader"],
+      },
+    ],
+  },
+  externals: {
+    react: "commonjs react",
+    "prop-types": "commonjs prop-types",
+    "lodash.get": "commonjs lodash.get",
+  },
 };

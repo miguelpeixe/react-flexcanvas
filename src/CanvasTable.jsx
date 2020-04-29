@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export default class CanvasTable extends React.Component {
   static propTypes = {
     columns: PropTypes.arrayOf(PropTypes.string).isRequired,
-    amount: PropTypes.number
+    amount: PropTypes.number,
   };
   render() {
     const { columns, data, amount } = this.props;
@@ -31,12 +31,18 @@ export default class CanvasTable extends React.Component {
               </tr>
             ))}
             <tr className="last-row">
-              {columns.map((column, j) => <td key={`lastrow-${j}`} />)}
+              {columns.map((column, j) => (
+                <td key={`lastrow-${j}`} />
+              ))}
             </tr>
           </tbody>
         ) : (
           <tbody>
-            <tr>{columns.map((column, i) => <td key={`cell-${i}`} />)}</tr>
+            <tr>
+              {columns.map((column, i) => (
+                <td key={`cell-${i}`} />
+              ))}
+            </tr>
           </tbody>
         )}
       </table>

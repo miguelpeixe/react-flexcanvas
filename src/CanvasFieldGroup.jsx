@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export default class CanvasGroup extends React.Component {
   static propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node,
   };
   render() {
     const { children } = this.props;

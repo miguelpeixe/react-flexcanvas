@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export default class CanvasList extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
-    amount: PropTypes.number
+    amount: PropTypes.number,
   };
   render() {
     const { title, data, children } = this.props;

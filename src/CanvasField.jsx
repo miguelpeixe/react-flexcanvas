@@ -8,7 +8,7 @@ export default class CanvasField extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     dataKey: PropTypes.string,
-    grow: PropTypes.number
+    grow: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   };
   _getValue(data) {
     const { dataKey, format } = this.props;
@@ -22,7 +22,7 @@ export default class CanvasField extends React.Component {
     const { title, placeholder, grow } = this.props;
     return (
       <DataContext.Consumer>
-        {data => (
+        {(data) => (
           <div className="canvas-field" style={{ flexGrow: grow || 1 }}>
             <h4 className="canvas-field-header">{title}</h4>
             <div className="canvas-content">{this._getValue(data) || ""}</div>

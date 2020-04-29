@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 export default class CanvasColumn extends React.Component {
   static propTypes = {
     children: PropTypes.node,
-    grow: PropTypes.number,
-    widths: PropTypes.string
+    grow: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    widths: PropTypes.string,
   };
   render() {
     const { grow, widths, children } = this.props;

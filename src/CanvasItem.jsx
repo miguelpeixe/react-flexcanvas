@@ -13,12 +13,12 @@ export default class CanvasItem extends React.Component {
     details: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     icon: PropTypes.element,
     featured: PropTypes.bool,
-    grow: PropTypes.number
+    grow: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   };
   constructor(props) {
     super(props);
     this.state = {
-      active: false
+      active: false,
     };
     this._handleClick = this._handleClick.bind(this);
     this._handleCloseClick = this._handleCloseClick.bind(this);
@@ -47,7 +47,7 @@ export default class CanvasItem extends React.Component {
   }
   _renderChildren(data) {
     const { children } = this.props;
-    return React.Children.map(children, child =>
+    return React.Children.map(children, (child) =>
       React.cloneElement(child, { data: this._getValue(data) })
     );
   }
@@ -60,7 +60,7 @@ export default class CanvasItem extends React.Component {
       grow,
       title,
       children,
-      dataKey
+      dataKey,
     } = this.props;
     const { active } = this.state;
     let classes = "";
@@ -85,12 +85,12 @@ export default class CanvasItem extends React.Component {
     }
     return (
       <DataContext.Consumer>
-        {data => (
+        {(data) => (
           <article
             onClick={this._handleClick}
             className={`canvas-item ${classes}`}
             style={{
-              flexGrow: grow || 1
+              flexGrow: grow || 1,
             }}
           >
             <section className="canvas-item-content">

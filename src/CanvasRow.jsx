@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 export default class CanvasRow extends React.Component {
   static propTypes = {
     children: PropTypes.node,
-    grow: PropTypes.number,
+    grow: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     color: PropTypes.string,
     attached: PropTypes.string,
-    widths: PropTypes.string
+    widths: PropTypes.string,
   };
   render() {
     const { grow, color, attached, widths, children } = this.props;
