@@ -30,7 +30,6 @@ export default class Canvas extends React.Component {
     return typeof data === "object" && Object.keys(data).length;
   }
   render() {
-    console.log("DUDE");
     return (
       <DataContext.Provider value={this.props.data}>
         <section
