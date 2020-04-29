@@ -23,17 +23,19 @@ export default class CanvasItem extends React.Component {
     this._handleClick = this._handleClick.bind(this);
     this._handleCloseClick = this._handleCloseClick.bind(this);
   }
-  _handleClick() {
+  _handleClick(ev) {
+    ev.preventDefault();
     const { details } = this.props;
     const { active } = this.state;
     if (details && !active) {
       this.setState({ active: true });
     }
   }
-  _handleCloseClick() {
+  _handleCloseClick(ev) {
+    ev.preventDefault();
     const { details } = this.props;
     const { active } = this.state;
-    if (details && active) {
+    if (active) {
       this.setState({ active: false });
     }
   }
@@ -109,7 +111,7 @@ export default class CanvasItem extends React.Component {
                 <div>
                   <div className="canvas-item-details-overlay">
                     <a
-                      href="javascript:void(0);"
+                      href="#"
                       onClick={this._handleClick}
                       className="canvas-item-details-button"
                     >
@@ -123,7 +125,7 @@ export default class CanvasItem extends React.Component {
               <section className="canvas-item-details">
                 <a
                   className="canvas-details-close"
-                  href="javascript:void(0);"
+                  href="#"
                   onClick={this._handleCloseClick}
                 >
                   x
