@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default class CanvasGroup extends React.Component {
+export default class CanvasFieldGroup extends React.Component {
   static propTypes = {
     children: PropTypes.node,
   };

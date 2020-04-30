@@ -2,20 +2,25 @@
 .canvas-row,
 .canvas-column,
 .canvas-item,
+.canvas-item-group,
+.canvas-item-group .canvas-item-group-content,
 .canvas-item .canvas-item-content,
 .canvas-item .canvas-header,
 .canvas-item .canvas-content {
-  flex-direction: column;
+  display: block;
 }
 
-.canvas-item .canvas-content {
-  min-height: 2em;
-}
-
-.canvas-item.active .canvas-item-content {
-
-}
-
-.canvas-item .canvas-item-icon {
-  font-size: 8vh;
+.canvas-item {
+  margin-bottom: 1rem;
+  .canvas-item-icon {
+    font-size: 8vh;
+  }
+  .canvas-content {
+    min-height: 4em;
+    .canvas-table {
+      tbody td {
+        padding-top: 4em;
+      }
+    }
+  }
 }

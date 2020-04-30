@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import "styles/canvas.less";
 
 import CanvasItem from "./CanvasItem.jsx";
+import CanvasItemGroup from "./CanvasItemGroup.jsx";
 import CanvasRow from "./CanvasRow.jsx";
 import CanvasColumn from "./CanvasColumn.jsx";
 import CanvasList from "./CanvasList.jsx";
@@ -19,6 +20,7 @@ export default class Canvas extends React.Component {
     data: PropTypes.object,
   };
   static Item = CanvasItem;
+  static ItemGroup = CanvasItemGroup;
   static Row = CanvasRow;
   static Column = CanvasColumn;
   static FieldGroup = CanvasFieldGroup;
