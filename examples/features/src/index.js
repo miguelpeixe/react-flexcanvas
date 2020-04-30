@@ -18,7 +18,7 @@ ReactDom.render(
         </FlexCanvas.Item>
       </FlexCanvas.Column>
       <FlexCanvas.Column>
-        <FlexCanvas.Item title="Key activities"  color="red">
+        <FlexCanvas.Item title="Key activities" color="red">
           <FlexCanvas.Field
             tip="Lorem ipsum dolor sit amet"
             title="What key activities do our value propositions require?"
@@ -30,7 +30,9 @@ ReactDom.render(
         <FlexCanvas.Item title="Key resources" />
       </FlexCanvas.Column>
       <FlexCanvas.Column>
-        <FlexCanvas.Item title="Value propositions" />
+        <FlexCanvas.Item title="Value propositions" tip="Lorem ipsum dolor sit">
+          <FlexCanvas.Field title="Who are our key suppliers?" />
+        </FlexCanvas.Item>
       </FlexCanvas.Column>
       <FlexCanvas.Column>
         <FlexCanvas.ItemGroup title="Stuff" description="Lorem ipsum dolor sit">

@@ -9,6 +9,7 @@ import CanvasTable from "./CanvasTable.jsx";
 export default class CanvasItem extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
+    tip: PropTypes.string,
     color: PropTypes.string,
     details: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     icon: PropTypes.element,
@@ -61,6 +62,7 @@ export default class CanvasItem extends React.Component {
       details,
       grow,
       title,
+      tip,
       children,
       dataKey,
     } = this.props;
@@ -102,6 +104,7 @@ export default class CanvasItem extends React.Component {
                 </h3>
               ) : null}
               <div className={`canvas-content ${contentClasses}`}>
+                {tip ? <p className="canvas-item-tip">{tip}</p> : null}
                 {this.props.children
                   ? this._renderChildren(data)
                   : this._getValue(data)}
